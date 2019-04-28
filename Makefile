@@ -1,24 +1,20 @@
 AS	= /usr/bin/m68k-suse-linux-as
 LD	= /usr/bin/m68k-suse-linux-ld
-
 ASFLAGS = -m68000 --register-prefix-optional 
 LDFLAGS = -O1 -static -nostdlib  
 
-OBJS=main.o 
+OBJS=hellobeef.o 
 
-ROM = main
+ROM = hellobeef
 BIN	= $(ROM).bin
 
 all:	$(BIN)
 
 clean:
-	rm -f $(BIN) && rm -f *.out && rm -f *.map && rm -f $(shell find . -name '*.o') 
+	rm *.{o,bin}
 
 $(BIN): $(OBJS)
 	$(LD) $(LDFLAGS) $< --oformat binary -o $@
 
 %.o: %.asm 
 	$(AS) $(ASFLAGS) $< -o $@
-
-run: all
-	$(DEBUGGER) $(BIN) 

@@ -75,8 +75,8 @@ rom_start:
 | For some reason GNU AS won't do dc.b 'STRING' so we have to use .ascii "string"
     .ascii  "SEGA MEGA DRIVE "                                 | Console name
     .ascii  "BillyRay        "                                 | Copyright holder and release date
-    .ascii  "HELLO WORLD                                     " | Domestic name
-    .ascii  "HELLO WORLD                                     " | International name
+    .ascii  "HELLO BEEF                                      " | Domestic name
+    .ascii  "HELLO BEEF                                      " | International name
     .ascii  "GM XXXXXXXX-XX"                                   | Version number
     dc.w    0x0000                                             | Checksum
     .ascii  "J               "                                 | I/O support
@@ -95,25 +95,9 @@ rom_start:
 
 | Everything kicks off here.  Must be at 0x200
 cpu_entrypoint:
-    move.l  #0xAAAAAAAA, d0
-    move.l  #0xBEEFD00D, d0
+    move.l  #0xBEEFBEEF, d0
     clr.l   d0
-    clr.l   d1
-
-| LoopUp: Count up to 20
-| d0 = 20
-| d1 = counter 
-loopup_init:
-    clr.l   d0
-    clr.l   d1
-    move.b  #20, d0
-    move.b  #1, d1
-
-loopup:
-    cmp d0, d1
-    beq cpu_entrypoint  | done
-    addq #1, d1         | increment counter
-    jmp loopup          
+    jmp cpu_entrypoint
 
 | interupt handlers
 cpu_exception:
