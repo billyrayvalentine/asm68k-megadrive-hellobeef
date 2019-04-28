@@ -1,6 +1,8 @@
-| main.asm
+| hellobeef.asm
 | (c) BillyRayValentine
 | Written for use with GNU AS
+|
+| Writes 0XBEEFBEEF to d0, clear d0, and repeat forever
 |
 | Vector table with interupts - Thanks to Big Evil Corporation for this and
 | most of what is in this file

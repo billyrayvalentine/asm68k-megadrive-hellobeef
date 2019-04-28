@@ -1,6 +1,12 @@
 # asm68k-megadrive-hellobeef
-A simple hello world project to get up and running with megadrive/genesis
+A simple hello world like project to get up and running with megadrive/genesis
 development
+
+Simply sets up the Megadrive 68000 vector table, rom header and writes 
+0xBEEFBEEF to register d0
+
+Big thanks to [https://blog.bigevilcorporation.co.uk/] whose excellent blog
+opened this rabbit hole for me.
 
 Most of the introductions I've seen set up the VDP which adds a significant
 learning curve to anyone just wanted to dive in and play with some m68k assembly
