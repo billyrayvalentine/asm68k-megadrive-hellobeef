@@ -2,17 +2,18 @@
 A simple hello world project to get up and running with megadrive/genesis
 development
 
-Most of the introductions i've seen set up the VDP which adds a significant
+Most of the introductions I've seen set up the VDP which adds a significant
 learning curve to anyone just wanted to dive in and play with some m68k assembly
 
-This demo therefor won't display anything useful, but when comibined with a
+This demo therefor won't display anything useful, but when combined with a
 debugger it does give you a very basic m68k-megadrive development environment
 
 I've used GNU AS (GAS) as a matter of preference for opensource tools
 
 # Installing GNU AS m68k assembler 
-Lukerly, OpenSuSE has a pre-compiled m68k bintools package which works great
+Luckily, OpenSuSE has a pre-compiled m68k bintools package which works great
 e.g. 
+
 ```zypper in cross-m68k-binutils```
 
 This gives you
@@ -38,5 +39,7 @@ Nice.
 
 # Debugging
 I used mame-mess which is in the OpenSuSE OSS repo
+
 Invoke it with:
+
 ```mame-mess genesis -cart hellobeef.bin -debug```
