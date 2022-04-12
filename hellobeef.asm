@@ -72,7 +72,7 @@ rom_start:
     dc.l   int_null             | Unused (reserved)
     dc.l   int_null             | Unused (reserved)
     dc.l   int_null             | Unused (reserved)
-    
+
 | ROM Header - Explained really well here https://www.plutiedev.com/rom-header
 | For some reason GNU AS won't do dc.b 'STRING' so we have to use .ascii "string"
     .ascii  "SEGA MEGA DRIVE "                                 | Console name
@@ -107,7 +107,7 @@ cpu_exception:
 int_null:
     rte
 int_hinterrupt:
-    rte:
+    rte
 int_vinterrupt:
-    rte:
+    rte
 rom_end:
