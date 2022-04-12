@@ -97,11 +97,40 @@ rom_start:
 
 | Everything kicks off here.  Must be at 0x200
 cpu_entrypoint:
-    move.l  #0xBEEFBEEF, d0
-    clr.l   d0
+    SOME_VALUE = 100
+
+    * Subtraction using bytes using SUB
+    * 12 - 4 using registers
+    clr.b   d0
+    clr.b   d1
+
+    move.b  #12, d0
+    move.b  #8,  d1
+    sub.b  d1, d0
+
+    cmpi.b #4, d0
+    beq 1f
+    illegal
+
+1:
+    clr.b   d0
+    clr.b   d1
+
+    * Subtraction using immediate data SUBI
+    * 120 - 100 using SOME_VALUE
+    move.b  #120, d0
+    subi.b  #SOME_VALUE, d0
+
+    cmpi.b #20, d0
+    beq cpu_entrypoint
+    illegal
+
     jmp cpu_entrypoint
 
-| interupt handlers
+
+
+
+
 cpu_exception:
     rte
 int_null:
